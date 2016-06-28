@@ -57,50 +57,75 @@
     </nav>
 
     <div class="container">
-        <br><br><br>    
+        <br><br><br>   
         <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Lista de Usuarios</h3>
+                        <h3 class="panel-title">Lista de Ciudades</h3>
                     </div>
                     <div class="panel-body">
                         <br>
-                        <form method="post" action="index.jsp">
-            Buscar por Nombre:<input type="text" name="buscarUsuario" ><input type="submit" value="Buscar">
+                          <form method="post" action="index.jsp">
+            Buscar por Nombre:<input type="text" name="buscarCiudad" ><input type="submit" value="Buscar">
                         </form><br><br>
-                        <a href="insert.jsp" class="btn btn-primary">AGREGAR USUARIO</a>
+                        
+                        
+                        
+                        <a href="insert.jsp" class="btn btn-primary">AGREGAR CIUDAD</a>
                         <br><br><br>
             <table class="table table-condensed table-hover table-bordered">
                             <thead>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Fecha de nacimiento</th>
-                                <th>Acciones</th>
+                                <th>Creado Por</th>
+                                <th>Pais ID</th>
+                                <th>Opciones</th>
                             </thead>            
                         
                         
       
 <%
                 coneccion con = new coneccion();
-                 if (request.getParameter("buscarUsuario") != null) {
-                    if (request.getParameter("buscarUsuario").isEmpty()) {
-                        con.setConsult("select * from usuarios where estado='activo'");
+                 if (request.getParameter("buscarCiudad") != null) {
+                    if (request.getParameter("buscarCiudad").isEmpty()) {
+                        con.setConsult("select * from ciudades where estado='activo'");
                     } else {
-                        String nombre = request.getParameter("buscarUsuario");
-                        con.setConsult("select * from usuarios where usuario like '%"+nombre+"%' and estado='activo'");
+                        String nombre = request.getParameter("buscarCiudad");
+                        con.setConsult("select * from ciudades where nombre like '%"+nombre+"%' and estado='activo'");
                     }
                 }else{
-                    con.setConsult("select * from usuarios where estado='activo'");
+                    con.setConsult("select * from ciudades where estado='activo'");
                 }
-            %>
-            <% while (con.getResult().next()) { %>
+          
+
+
+
+
+
+
+
+
+%>
+          
+            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <% while (con.getResult().next()) { %>
             <tr>
                 <%
-                    out.println("<td>" + con.getResult().getString("usuario_id") + "</td>");
-                    out.println("<td>" + con.getResult().getString("usuario") + "</td>");
-                    out.println("<td>" + con.getResult().getString("fecha_nacimiento") + "</td>");
-                    out.println("<td>" + "<a href='../ServletBDD?eliminarUsuario=" + con.getResult().getString("usuario_id") + "' class='btn btn-danger'>Eliminar</a>" + "</td>");
-                    out.println("<td>" + "<a href='edit.jsp?usuario_id=" + con.getResult().getString("usuario_id") + "' class='btn btn-primary'>Editar</a>" + "</td>");    
+                    out.println("<td>" + con.getResult().getString("ciudad_id") + "</td>");
+                    out.println("<td>" + con.getResult().getString("nombre") + "</td>");
+                    out.println("<td>" + con.getResult().getString("creado_por") + "</td>");
+                    out.println("<td>" + con.getResult().getString("pais_id") + "</td>");
+                   
+                    out.println("<td>" + "<a href='../ServletBDD?eliminarCiudad=" + con.getResult().getString("ciudad_id") + "' class='btn btn-danger' >Eliminar</a>" + "</td>");
+                    out.println("<td>" + "<a href='edit.jsp?ciudad_id=" + con.getResult().getString("ciudad_id") + "' class='btn btn-primary'>Editar</a>" + "</td>");
 %>
 
             </tr>

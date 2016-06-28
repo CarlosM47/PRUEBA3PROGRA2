@@ -30,7 +30,7 @@ public class coneccion {
 
         String driver = "com.mysql.jdbc.Driver";
         String user = "root";
-        String pass = "camu1303";
+        String pass = "yagami47";
         String url = "jdbc:mysql://localhost:3306/prueba";
         try {
             Class.forName(driver);

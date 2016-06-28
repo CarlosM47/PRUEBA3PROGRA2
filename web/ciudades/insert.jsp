@@ -1,11 +1,11 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
@@ -13,7 +13,7 @@
     <title>Starter Template for Bootstrap</title>
 
  
-    <link href="template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../template/css/bootstrap.min.css" rel="stylesheet">
 
     
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -56,41 +56,49 @@
     </nav>
 
     <div class="container">
-
-      
-        
-      
-
-  
-    
-    <br><br><br>
-      <div class="row">
+        <br><br><br>
+        <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Bienvenido a la Libreria Virtual</h3>
+                        <h3 class="panel-title">Agregar Ciudad</h3>
                     </div>
                     <div class="panel-body">
-                        <h2>Elija una opcion</h2>
-                        <hr>
-                        <br>
-                        <a href="usuarios/index.jsp">Usuarios</a>
-                        <br>
-                        <a href="paises/index.jsp">Paises</a>
-                        <br>
-                        <a href="ciudades/index.jsp">Ciudades</a>
-                        <br>
-                        <a href="autor/index.jsp">Autores</a>
-                        <br>
-                        <a href="libros/index.jsp">Libros</a>
-                        <br>
-                        <a href="editoriales/index.jsp">Editoriales</a>
-                       
-                        
+        
+                     <form method="post" action="../ServletBDD">
+         <table border="1">
+             
+             <tr>
+                 <td>NOMBRE</td><td><input type="text" name="nombre"></td>
+            </tr>
+              <tr>
+                 <td>CREADO POR</td><td><input type="text" name="creado_por"></td>
+            </tr>
+            <tr>
+                 <td>PAIS ID</td><td><input type="text" name="pais_id"></td>
+            </tr>
+                
+             <tr>
+                 <td><input type="submit" name="guardarCiudad" value="Guardar"></td>
+             </tr>
+        
+         
+         
+         
+         </table>
+         </form>        
 
+  
+                    
+                 
+                    
+                    
+                    
+                    
+                    
+                    
                     </div>
-                </div>
-            </div>
-    
+     </div>
+                    </div>
         
         
         
@@ -112,7 +120,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="template/js/bootstrap.min.js"></script>
+    <script src="../template/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

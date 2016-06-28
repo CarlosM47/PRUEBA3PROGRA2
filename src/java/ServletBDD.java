@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import negocio.autor;
+import negocio.ciudades;
 import negocio.editoriales;
 import negocio.libros;
+import negocio.paises;
 import negocio.usuarios;
 
 
@@ -210,6 +212,95 @@ public class ServletBDD extends HttpServlet {
                 
                
                 lib.editLibros();
+                 response.sendRedirect("index.jsp");
+                 
+             } else if (request.getParameter("eliminarPais")!=null){
+               int id=Integer.parseInt(request.getParameter("eliminarPais"));
+                 out.println("Eliminar ID:"+id);
+               //CREO UN OBJETO USARIO
+                paises pa=new paises();
+               //ASIGNO LA ID
+                pa.setPais_id(id);
+                //ELIMINO USAURIO
+                pa.deletePaises();
+                //REDIRECCIONO A INDEX
+                response.sendRedirect("index.jsp");
+         
+          }else if (request.getParameter("guardarPais")!=null){
+                String nombre=request.getParameter("nombre");
+                String creado_por=request.getParameter("creado_por");
+               
+                
+             
+                paises pa=new paises();
+                pa.setNombre(nombre);
+                pa.setCreado_por(creado_por);
+                
+                
+                
+                pa.insertPaises();
+                //REDIRECCIONAR A INDEX.JSP DeSPUES DE GUARDAR
+                response.sendRedirect("index.jsp");
+           
+           
+           }else if(request.getParameter("editarPais")!=null){
+               
+               int pais_id=Integer.parseInt(request.getParameter("pais_id"));
+                String nombre=request.getParameter("nombre");
+                String creado_por=request.getParameter("creado_por");
+                
+                paises pa=new paises();
+                pa.setPais_id(pais_id);
+                pa.setNombre(nombre);
+                pa.setCreado_por(creado_por);
+                
+               
+                pa.editPaises();
+                 response.sendRedirect("index.jsp");
+                 
+             }  else if (request.getParameter("eliminarCiudad")!=null){
+               int id=Integer.parseInt(request.getParameter("eliminarCiudad"));
+                 out.println("Eliminar ID:"+id);
+               //CREO UN OBJETO USARIO
+                ciudades ciu=new ciudades();
+               //ASIGNO LA ID
+                ciu.setCiudad_id(id);
+                //ELIMINO USAURIO
+                ciu.deleteCiudades();
+                //REDIRECCIONO A INDEX
+                response.sendRedirect("index.jsp");
+         
+          } else if (request.getParameter("guardarCiudad")!=null){
+                String nombre=request.getParameter("nombre");
+                String creado_por=request.getParameter("creado_por");
+                int pais_id=Integer.parseInt(request.getParameter("pais_id"));
+                
+             
+                ciudades ciu=new ciudades();
+                ciu.setNombre(nombre);
+                ciu.setCreado_por(creado_por);
+                ciu.setPais_id(pais_id);
+                
+                
+                ciu.insertCiudades();
+                //REDIRECCIONAR A INDEX.JSP DeSPUES DE GUARDAR
+                response.sendRedirect("index.jsp");
+           
+           
+           }else if(request.getParameter("editarCiudad")!=null){
+               
+               int ciudad_id=Integer.parseInt(request.getParameter("ciudad_id"));
+                String nombre=request.getParameter("nombre");
+                String creado_por=request.getParameter("creado_por");
+                int pais_id=Integer.parseInt(request.getParameter("pais_id"));
+                
+                ciudades ciu=new ciudades();
+                ciu.setNombre(nombre);
+                ciu.setCreado_por(creado_por);
+                ciu.setPais_id(pais_id);
+                ciu.setCiudad_id(ciudad_id);
+               
+                ciu.editCiudades();
                  response.sendRedirect("index.jsp");
                  
              }
