@@ -301,14 +301,13 @@ public class ServletBDD extends HttpServlet {
                 ciu.setCiudad_id(ciudad_id);
                
                 ciu.editCiudades();
-                 response.sendRedirect("index.jsp");
+                response.sendRedirect("index.jsp");
                  
-             }
+            
         
         
         
-        
-        
+           }
         
         
         

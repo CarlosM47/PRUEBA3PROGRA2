@@ -1,3 +1,5 @@
+<%@page import="reportes.reporteAutores"%>
+<%@page import="reportes.reporteAutores"%>
 <%@page import="acceso.coneccion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -123,6 +125,27 @@
             <% }%>
    
             </table>
+                    
+                    
+            <br>
+            <form method="post" action="index.jsp">
+            <input type="submit" name="reportAutores" value="General listado en PDF">
+            <%
+               
+                if((request.getParameter("reportAutores")!=null)){
+               
+                        reporteAutores repa= new reporteAutores();
+                        repa.reporteAutores();
+                       
+                
+                }
+                
+               
+            
+            
+            %>
+                    </form>
+                    
                     </div>
             </div>
             </div>
