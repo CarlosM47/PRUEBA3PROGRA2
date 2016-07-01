@@ -56,4 +56,23 @@ insert into libros (nombre, fecha_creacion, estado, autor_id, editorial_id, usua
 
 
 select libros.nombre, libros.fecha_creacion, libros.autor_id, libros.editorial_id, usuarios.usuario from libros join usuarios ON usuarios.usuario_id=libros.libro_id;
+
+
+create table ciudades (
+	ciudad_id int(10) primary key not null auto_increment,
+	nombre varchar(50),
+	estado varchar(50),
+	creado_por varchar(50),
+	pais_id int(10)
+	);
+
+create table paises (
+	pais_id int(10) primary key not null auto_increment,
+	nombre varchar(50),
+	creado_por varchar(50),
+	estado varchar(50)
+);	
+
+
+
 ```
