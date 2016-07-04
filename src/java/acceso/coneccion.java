@@ -50,11 +50,17 @@ public class coneccion {
      
         }
     }
-    //devolver el listado de ciudades
+  
+ public Connection getConeccion(){
+        return con;
+    }    
+
+//devolver el listado de ciudades
     public ResultSet getResult(){
         return rs;
     }
     
+   
     public void setInsert(String sql){
         try {
             stmt=con.createStatement();

@@ -116,13 +116,17 @@
             <% }%>
    
             </table>
+            <br>
+            
+            <a href="reporte.jsp">Generar Reporte</a>
+                    
                     </div>
             </div>
             </div>
     </div>
     
     
-    
+            
     
     
     

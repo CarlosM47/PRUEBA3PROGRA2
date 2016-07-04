@@ -132,6 +132,8 @@
             <% }%>
    
             </table>
+            
+            <br> <a href="reporte.jsp">Generar Reporte</a>
                     </div>
             </div>
             </div>
@@ -156,5 +158,6 @@
     <script src="../template/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+   
   </body>
 </html>

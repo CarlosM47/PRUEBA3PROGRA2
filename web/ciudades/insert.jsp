@@ -74,9 +74,15 @@
                  <td>CREADO POR</td><td><input type="text" name="creado_por"></td>
             </tr>
             <tr>
-                 <td>PAIS ID</td><td><input type="text" name="pais_id"></td>
+                  
+            <div class="form-group">
+                            <label for="responsable">Seleccinar Pais</label>
+                            <select name= "paises" id="paises" class="form-control"></select>
+                        </div> 
             </tr>
                 
+            
+           
              <tr>
                  <td><input type="submit" name="guardarCiudad" value="Guardar"></td>
              </tr>
@@ -123,5 +129,24 @@
     <script src="../template/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+      <script>
+            $(document).ready(function () {
+                $('select').select2();
+                $('#paises').append('<option> Seleccionar Pais</option>');
+                $.get("http://localhost:8080/AppJava01/ServletJquery", function (data, status) {
+                    $.each(data, function (i, item) {
+                        $('#paises').append('<option value=' + item.pais_id + '>' + item.nombre + '</option>');
+                    });
+
+                });
+                
+              
+            });
+
+        </script>   
+
+
+
   </body>
 </html>

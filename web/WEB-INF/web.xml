@@ -14,15 +14,8 @@
         </session-timeout>
     </session-config>
     
-    <servlet>  
-    <servlet-name>ServletLogin</servlet-name>  
-    <servlet-class>ServletLogin</servlet-class>  
-</servlet>  
-  
-<servlet-mapping>  
-<servlet-name>ServletLogin</servlet-name>  
-<url-pattern>/ServletLogin</url-pattern>  
-</servlet-mapping>  
+    
+    
     
     
 </web-app>
