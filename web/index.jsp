@@ -70,6 +70,13 @@
                         <h3 class="panel-title">Bienvenido a la Libreria Virtual</h3>
                     </div>
                     <div class="panel-body">
+                     
+                        
+     
+    
+                        
+                        
+                        
                         <h2>Elija una opcion</h2>
                         <hr>
                         <br>

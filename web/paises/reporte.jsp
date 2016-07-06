@@ -24,7 +24,7 @@
                 outputStream.flush();
                 outputStream.close();
             } catch (Exception ex) {
-                out.println("ERROR DE CONEXION AL GENERAR EL REPORTE! :D");
+                out.println("ERROR DE CONEXION");
             }
         %>
     </body>

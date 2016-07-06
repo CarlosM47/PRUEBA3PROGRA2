@@ -1,11 +1,16 @@
 
 
+import acceso.coneccion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import negocio.autor;
 import negocio.ciudades;
 import negocio.editoriales;
@@ -19,6 +24,42 @@ public class ServletBDD extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+       
+         HttpSession logeado = request.getSession(true);
+           String user=request.getParameter("userName");
+           String pass=request.getParameter("userPass");
+           coneccion con=new coneccion();
+           con.setConsult("select * from usuarios where usuario='"+user+"'");
+           try {
+               while(con.getResult().next()){
+                   if(con.getResult().getString("clave").equals(pass)){
+                       logeado.setAttribute("valido","true");
+                   }else{
+                       logeado.setAttribute("valido","false");
+                   }
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(ServletLogin.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         try (PrintWriter out = response.getWriter()) {
            if(request.getParameter("eliminar")!=null){
                int id=Integer.parseInt(request.getParameter("eliminar"));
